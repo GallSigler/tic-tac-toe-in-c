@@ -215,10 +215,8 @@ do
         }
     }
 } while ((processedRow!=1 && processedRow!=2 && processedRow!=3)||(processedCol!=1&&processedCol!=2&&processedCol!=3)||(a[(processedCol-1)+(3*(processedRow-1))]!=0));
-
-//if all is good store the move 
-a[(processedCol-1)+(3*(processedRow-1))]=1;
-
+    //if all is good store the move 
+    a[(processedCol-1)+(3*(processedRow-1))]=1;
 }
 
 int opponentMove(int a[]) 
