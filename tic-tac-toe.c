@@ -202,11 +202,11 @@ do
     printf("Row:"); 
     char row[5]; 
     fgets(row, sizeof(row), stdin); 
-    sscanf(row, "%i", &processedRow); 
+    sscanf(row, "%i", &processedRow); //sscanf does under the hood the char conversion of 1 into int 
     if (processedRow!=1 && processedRow!=2 && processedRow!=3) {
         printf("You provided an invalid index. Try again.\n");
     }
-    if (a[(processedCol-1)+(3*(processedRow-1))]!=0) {
+    if (a[(processedCol-1)+(3*(processedRow-1))]!=0 && (processedRow==1 || processedRow==2 || processedRow==3)) {
         printf("You tried to cheat! Shame on you. Try again.\n");
     }
 } while ((processedRow!=1 && processedRow!=2 && processedRow!=3)||(processedCol!=1&&processedCol!=2&&processedCol!=3)||(a[(processedCol-1)+(3*(processedRow-1))]!=0));

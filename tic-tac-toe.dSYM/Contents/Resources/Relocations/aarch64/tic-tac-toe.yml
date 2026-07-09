@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/gallsigler/GitHub/tic-tac-toe-in-c/tic-tac-toe'
+relocations:     []
+...
