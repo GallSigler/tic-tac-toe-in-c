@@ -199,15 +199,12 @@ do
     printf("Column:"); 
     char col[120]; 
     fgets(col, sizeof(col), stdin); 
-    sscanf(col, "%lli", &processedCol);
+    sscanf(col, "%lli", &processedCol); 
     printf("Row:"); 
 
     char row[120]; 
     fgets(row, sizeof(row), stdin); 
     sscanf(row, "%lli", &processedRow); //sscanf does under the hood the char conversion of 1 into int 
-    
-    printf("%lli\n", processedRow); 
-    printf("%lli\n", processedCol); 
 
     if ((processedRow!=1 && processedRow!=2 && processedRow!=3) || (processedCol!=1 && processedCol!=2 && processedCol!=3)) {
         printf("You provided an invalid index. Try again.\n");
