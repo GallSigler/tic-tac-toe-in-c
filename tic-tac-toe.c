@@ -191,28 +191,37 @@ int displayArray(int a[], int k) {
 int playerMove(int a[])
 {
 
-int processedCol; 
-int processedRow; 
+long long processedCol; 
+long long processedRow; 
+
 do
 {
     printf("Column:"); 
-    char col[5]; 
+    char col[120]; 
     fgets(col, sizeof(col), stdin); 
-    sscanf(col, "%i", &processedCol);
+    sscanf(col, "%lli", &processedCol);
     printf("Row:"); 
 
-    char row[5]; 
+    char row[120]; 
     fgets(row, sizeof(row), stdin); 
-    sscanf(row, "%i", &processedRow); //sscanf does under the hood the char conversion of 1 into int 
+    sscanf(row, "%lli", &processedRow); //sscanf does under the hood the char conversion of 1 into int 
+    
+    printf("%lli\n", processedRow); 
+    printf("%lli\n", processedCol); 
+
     if ((processedRow!=1 && processedRow!=2 && processedRow!=3) || (processedCol!=1 && processedCol!=2 && processedCol!=3)) {
         printf("You provided an invalid index. Try again.\n");
     }
-    if (a[(processedCol-1)+(3*(processedRow-1))]!=0 && (processedRow==1||processedRow==2||processedRow==3)) {
-        printf("You tried to cheat! Shame on you. Try again.\n");
+    if ((processedRow==1||processedRow==2||processedRow==3) && (processedCol==1||processedCol==2||processedCol==3)) {
+        if (a[(processedCol-1)+(3*(processedRow-1))]!=0) {//moved this in so that it won't try to find a non-existen address in the array
+            printf("You tried to cheat! Shame on you. Try again.\n");
+        }
     }
 } while ((processedRow!=1 && processedRow!=2 && processedRow!=3)||(processedCol!=1&&processedCol!=2&&processedCol!=3)||(a[(processedCol-1)+(3*(processedRow-1))]!=0));
 
-    a[(processedCol-1)+(3*(processedRow-1))]=1;
+//if all is good store the move 
+a[(processedCol-1)+(3*(processedRow-1))]=1;
+
 }
 
 int opponentMove(int a[]) 
