@@ -22,7 +22,7 @@ int main(void)
     fgets(startInput, sizeof(startInput), stdin); //grabs the entire string from the keyboard, emptying the buffer
     sscanf(startInput, "%c", &startAnswer);//extracts the character 
 
-    while(startAnswer!='Y'&&startAnswer!='N') 
+    while(startAnswer!='Y'&&startAnswer!='N'&&startAnswer!='y'&&startAnswer!='x') 
     {
         printf("You typed %c, which is an invalid input.\n", startAnswer); 
         printf("Do you want to start? Y/N\n"); 
@@ -30,7 +30,7 @@ int main(void)
         sscanf(startInput, "%c", &startAnswer);
     }
 
-    if (startAnswer=='Y') {
+    if (startAnswer=='Y' || startAnswer=='y') {
         printf("Awesome. You will start the game. below is an illustration of the game grid:\n"); 
         for (int i=0; i<3; i++)  
         {
